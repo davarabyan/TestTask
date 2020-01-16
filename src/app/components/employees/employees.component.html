@@ -1,0 +1,28 @@
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Picture</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Name Lastname</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Cell</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let emp of employees?.results">
+            <th scope="row"><img src="{{emp.picture.thumbnail}}" alt=""></th>
+            <td>{{emp.gender}}</td>
+            <td>{{emp.name.title}}. {{emp.name.first}} {{emp.name.last}} </td>
+            <td>{{emp.email}}</td>
+            <td>{{emp.phone}}</td>
+            <td>{{emp.cell}}</td>
+        </tr>
+    </tbody>
+</table>
+<div class="container">
+    <p>Our employee locations</p>
+    <angular-yandex-map [center]="[55.751952, 37.600739]" [zoom]="2">
+      <angular-yandex-placemark [geometry]="[mark.location.coordinates.latitude, mark.location.coordinates.longitude]" *ngFor="let mark of employees?.results"></angular-yandex-placemark>
+    </angular-yandex-map>
+  </div>
